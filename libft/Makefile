@@ -6,7 +6,7 @@
 #    By: rpaulo-c <rpaulo-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/02 19:56:54 by rpaulo-c          #+#    #+#              #
-#    Updated: 2025/06/03 15:40:50 by rpaulo-c         ###   ########.fr        #
+#    Updated: 2025/06/05 22:36:06 by rpaulo-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -46,4 +46,10 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: all clean fclean re
+norm:
+	@echo "🔍 Running norminette on libft..."
+	@norminette $(SRCS) libft.h
+	@echo "✅ Libft norminette check complete!"
+
+.PHONY: all clean fclean re norm
+

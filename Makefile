@@ -6,7 +6,7 @@
 #    By: rpaulo-c <rpaulo-c@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/06/02 19:56:58 by rpaulo-c          #+#    #+#              #
-#    Updated: 2025/06/03 18:18:53 by rpaulo-c         ###   ########.fr        #
+#    Updated: 2025/06/05 22:36:38 by rpaulo-c         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -62,6 +62,12 @@ fclean: clean
 	@echo "🗑️  Fclean complete"
 
 re: fclean all
+
+norm:
+	@echo "🔍 Running norminette..."
+	@norminette $(SRCS) push_swap.h
+	@$(MAKE) -C $(LIBFT_DIR) norm 2>/dev/null || echo "⚠️  Libft norminette not available"
+	@echo "✅ Norminette check complete!"
 
 test2: $(NAME)
 	$(eval ARG = $(shell shuf -i 0-100 -n 2))
